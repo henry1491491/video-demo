@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     getVideoPlayer(id) {
-      this.$router.push(`/${id}`)
+      this.$router.push(`/content/${id}`)
     },
     setCollectItem(id) {
       this.$store.commit("SET_COLLECT_ITEM", id)
