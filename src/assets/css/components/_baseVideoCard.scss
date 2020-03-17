@@ -2,7 +2,7 @@
   .card {
     background-color: $color-mountain-shadow-blue;
     border-radius: 5px;
-    height: 240px; //
+    height: 240px;
 
     .card-header {
       height: 160px;
@@ -79,8 +79,6 @@
     }
   }
   .base-card-description {
-    border: 1px solid green;
-
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

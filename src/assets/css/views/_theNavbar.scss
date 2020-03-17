@@ -4,7 +4,9 @@
   display: flex;
   flex-direction: row;
   height: 60px;
+  min-width: 360px;
   width: 100%;
+
   .nav-title-group {
     align-items: center;
     display: flex;
@@ -17,15 +19,28 @@
     }
   }
 
+  .menu,
+  .material-design-icon > svg {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    color: lightgray;
+    cursor: pointer;
+    display: none;
+    height: 1.9rem;
+    margin-left: auto;
+    margin-right: 1rem;
+    width: 1.9rem;
+  }
+
   .nav-item {
     align-items: center;
     display: flex;
     justify-content: flex-start;
     padding: 0.5rem;
     margin-left: auto;
+
     .nav-item-group {
       align-items: center;
-
       display: flex;
       height: 1.75rem;
       justify-content: flex-start;
@@ -59,6 +74,19 @@
       color: lightgray;
       margin-left: 0.5rem;
       margin-right: 2rem;
+    }
+  }
+  @media (max-width: 360px) {
+    min-width: calc(360px + 4rem);
+    width: 100%;
+    .nav-item,
+    .nav-title {
+      display: none;
+    }
+
+    .menu,
+    .material-design-icon > svg {
+      display: block;
     }
   }
 }

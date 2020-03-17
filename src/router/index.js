@@ -12,8 +12,12 @@ const routes = [
     path: "/",
     component: TheHome,
     children: [
-      { path: "", name: "TheContent", component: TheContent },
-      { path: "id/:id", name: "TheContentPlayer", component: TheContentPlayer },
+      { path: "content", name: "TheContent", component: TheContent },
+      {
+        path: "content/:id",
+        name: "TheContentPlayer",
+        component: TheContentPlayer
+      },
       { path: "collect", name: "TheCollect", component: TheCollect }
     ]
   }

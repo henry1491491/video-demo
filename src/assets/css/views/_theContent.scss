@@ -1,7 +1,11 @@
 #views-the_content {
+  height: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0;
   .grid-container {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(4, 25%);
     grid-template-rows: auto auto auto;
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.5rem;
@@ -12,10 +16,15 @@
     border-radius: 5px;
   }
 
-  .pagination {
-    align-items: center;
+  .paginate {
     display: flex;
+    justify-content: flex-end;
+  }
+  .pagination {
+    display: flex;
+    align-items: center;
     height: 50px;
+    margin-bottom: 0;
 
     li {
       border: 1px solid $color-mountain-shadow-blue;
@@ -41,17 +50,43 @@
     }
   }
 
-  .player {
-    display: flex;
-    justify-content: flex-start;
-    .player-main {
-      margin: 2rem;
+  @media screen and (max-width: 1024px) {
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 33.33%);
+      grid-template-rows: repeat(4, auto);
+      grid-column-gap: 0.5rem;
+      grid-row-gap: 0.5rem;
+      padding: 2rem;
     }
-    .player-sidebar {
-      margin: 2rem 2rem 2rem 0.5rem;
-      .card-item {
-        margin-bottom: 1rem;
-      }
+  }
+
+  @media screen and (max-width: 768px) {
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      grid-template-rows: repeat(6, auto);
+      grid-column-gap: 0.5rem;
+      grid-row-gap: 0.5rem;
+      padding: 2rem;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .grid-container {
+      display: grid;
+      grid-template-columns: 100%;
+      grid-column-gap: 0.5rem;
+      grid-row-gap: 0.5rem;
+      padding: 2rem;
+      min-width: 360px;
+      width: 100%;
+    }
+    .paginate {
+      display: flex;
+      justify-content: center;
+      margin: auto 0;
+      width: 424px;
     }
   }
 }

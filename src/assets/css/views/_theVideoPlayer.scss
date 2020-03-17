@@ -1,50 +1,68 @@
 #views-the_videoplayer {
-  .container {
-    .main {
-      border: 1px solid $color-mountain-shadow-blue;
-      border-radius: 5px;
-    }
-    .card {
-      background-color: $color-mountain-shadow-blue;
-      height: auto;
-    }
-    .card-title {
-      color: lightgray;
-      font-size: $font-size-title;
-      padding: 0.6rem 1rem 0;
-    }
-    .card-description {
-      -webkit-box-orient: vertical;
-      color: lightgray;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      margin: 0 auto;
-      max-width: 100%;
-      overflow: hidden;
-      padding: 1rem;
-      text-overflow: ellipsis;
-      white-space: pre-wrap;
-      width: 100%;
-    }
-
-    .actived {
-      color: lightgray;
-      height: auto;
-      margin: 0 auto;
-      max-width: 100%;
-      padding: 1rem;
-      width: 100%;
-      //white-space: pre-wrap;
-    }
-    .card-text {
-      color: #fff;
-      padding: 1rem;
-      margin: 0 auto;
-    }
+  .demo1-video {
+    margin-top: 1rem;
+  }
+  .card {
+    background-color: $color-mountain-shadow-blue;
+    min-height: 100%;
     a {
       color: lightgray;
+      cursor: pointer;
+      display: block;
+      height: 25px;
       padding: 1rem;
       margin: 1rem auto;
+    }
+  }
+
+  .card-title {
+    color: lightgray;
+    font-size: $font-size-title;
+    overflow: hidden;
+    padding: 0.6rem 1rem 0;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+  }
+
+  .card-description {
+    -webkit-box-orient: vertical;
+    color: lightgray;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 1rem;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+  }
+  .card-description-more {
+    //-webkit-box-orient: vertical;
+    color: lightgray;
+    display: block;
+    //display: -webkit-box;
+    //-webkit-line-clamp: 2;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    //overflow: hidden;
+    padding: 1rem;
+    //text-overflow: ellipsis;
+    white-space: pre-wrap;
+  }
+
+  .card-text {
+    color: #fff;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 360px) {
+    padding: 0;
+    .demo1-video,
+    .card {
+      min-width: calc(360px + 4rem);
+      width: 100%;
     }
   }
 }

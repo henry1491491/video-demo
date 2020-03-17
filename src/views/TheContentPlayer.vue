@@ -1,36 +1,40 @@
 <template>
   <div id="views-the_videoplayer">
-    <div class="container">
-      <div class="main">
-        <div class="demo1-video">
-          <base-video-player :options="videoOptions" />
-        </div>
+    <div class="demo1-video">
+      <base-video-player
+        v-if="videoOptions"
+        :options="videoOptions"
+      />
+    </div>
 
-        <div
-          v-if="selectedVideoInfo"
-          class="card"
-        >
-          <div class="card-title">
-            <span>{{selectedVideoInfo.snippet.title}}</span>
-          </div>
-
-          <div
-            :class="{'actived':isShowDescription}"
-            class='card-description'
-          >
-            <pre>{{selectedVideoInfo.snippet.description}}</pre>
-
-            {{selectedVideoInfo.contentDetails.duration}}
-          </div>
-          <a
-            href="#"
-            @click.prevent="toggleDescription()"
-            v-text="isShowDescription === true ? '只顯示部份資訊' : '顯示完整資訊'"
-          ></a>
-        </div>
+    <div
+      v-if="selectedVideoInfo.length"
+      class="card"
+    >
+      <div class="card-title">
+        <span>{{selectedVideoInfo[0].snippet.title}}</span>
       </div>
+
+      <div
+        :class="{'card-description-more':isShowDescription === true}"
+        class='card-description'
+      >
+        <div>{{selectedVideoInfo[0].snippet.description}}</div>
+      </div>
+
+      <div class="card-text">
+        {{selectedVideoInfo[0].contentDetails.duration}}
+      </div>
+
+      <a
+        href="#"
+        @click.prevent="toggleDescription()"
+        v-text="isShowDescription === true ? '只顯示部份資訊' : '顯示完整資訊'"
+      ></a>
+
     </div>
   </div>
+
 </template>
 
 <script>
@@ -38,11 +42,10 @@ export default {
   name: "TheContentPlayer",
   data() {
     return {
-      videosData: [],
+      isShowDescription: false,
       videoOptions: {
         autoplay: false,
         controls: true,
-        poster: this.selectedVideoInfo.snippet.thumbnails.high.url,
         sources: [
           {
             src:
@@ -51,28 +54,28 @@ export default {
           }
         ]
       },
-      isShowDescription: false
+      videosData: []
     }
   },
   computed: {
     selectedVideoInfo() {
-      return this.videosData.filter(el => el.id === this.$route.params.id)[0]
+      return this.videosData.filter(el => el.id === this.$route.params.id)
     }
   },
   created() {
-    this.getVideosData()
+    this.videosData =
+      JSON.parse(window.sessionStorage.getItem("videosData")) || []
+    let posterData = this.videosData.filter(
+      el => el.id === this.$route.params.id
+    )[0].snippet.thumbnails.high.url
+    this.$set(this.videoOptions, "poster", posterData)
   },
   methods: {
-    getVideosData() {
-      this.videosData =
-        JSON.parse(window.sessionStorage.getItem("videosData")) || []
-      console.log(this.videosData)
-    },
     toggleDescription() {
-      if (this.isShowDescription) {
-        this.isShowDescription = false
-      } else {
+      if (!this.isShowDescription) {
         this.isShowDescription = true
+      } else {
+        this.isShowDescription = false
       }
     }
   }

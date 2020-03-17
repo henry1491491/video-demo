@@ -17,13 +17,15 @@
       />
     </div>
 
-    <paginate
-      :page-count="totalPages"
-      :prev-text="'<'"
-      :next-text="'>'"
-      :container-class="'pagination'"
-      :click-handler="getPageHandler"
-    />
+    <div class="paginate">
+      <paginate
+        :page-count="totalPages"
+        :prev-text="'<'"
+        :next-text="'>'"
+        :container-class="'pagination'"
+        :click-handler="getPageHandler"
+      />
+    </div>
   </div>
 </template>
 
@@ -82,7 +84,7 @@ export default {
       this.currentPage = page
     },
     getVideoPlayer(id) {
-      this.$router.push(`/id/${id}`)
+      this.$router.push(`/content/${id}`)
     },
     setCollectItem(id) {
       this.$store.commit("SET_COLLECT_ITEM", id)

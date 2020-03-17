@@ -1,6 +1,6 @@
 <template>
   <div id="views-the_collect">
-    <div class="container">
+    <div class="grid-container">
       <base-video-card
         v-for="(i,key) in collectVideosData"
         :key="key"
@@ -22,6 +22,11 @@
 <script>
 export default {
   name: "TheCollect",
+  data() {
+    return {
+      123: 2
+    }
+  },
   computed: {
     channelsListThumbnails() {
       return this.$store.state.channelsListThumbnails
