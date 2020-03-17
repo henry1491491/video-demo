@@ -42,7 +42,7 @@ export default {
       videoOptions: {
         autoplay: false,
         controls: true,
-        poster: this.selectedVideoInfo.snippet.thumbnails.high.url,
+        poster: this.selectedVideoInfo?.snippet?.thumbnails?.high?.url,
         sources: [
           {
             src:
