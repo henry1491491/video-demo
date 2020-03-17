@@ -1,0 +1,20 @@
+//utils
+@import "./utils/variables";
+
+//vendors
+@import "./vendors/meyerweb.scss";
+
+//views
+@import "./views/theHome.scss";
+@import "./views/theNavbar.scss";
+@import "./views/theContent.scss";
+@import "./views/theCollect.scss";
+@import "./views/theFooter.scss";
+@import "./views/theVideoPlayer.scss";
+
+//components
+@import "./components/baseVideoCard.scss";
+@import "./components/baseVideoPlayer.scss";
+
+//base
+@import "./base/basic";

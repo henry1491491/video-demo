@@ -1,0 +1,88 @@
+#components-base_videocard {
+  .card {
+    background-color: $color-mountain-shadow-blue;
+    border-radius: 5px;
+    height: 240px; //
+
+    .card-header {
+      height: 160px;
+      position: relative;
+      img {
+        height: auto;
+        width: 100%;
+        max-height: 100%;
+      }
+      .material-design-icon {
+        color: $color-goldenrod-yellow;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        z-index: 1000;
+        .material-design-icon__svg {
+          height: 30px;
+          width: 30px;
+        }
+      }
+    }
+    .card-body {
+      display: grid;
+      grid-template-columns: 10% auto;
+      height: 80px;
+      max-height: 80px;
+      padding: 8px;
+      .card-avatar > img {
+        border: 0.5px solid $color-mountain-shadow-blue;
+        border-radius: 50%;
+        padding: 1px;
+        margin: 0 auto;
+      }
+      .card-content {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        max-width: 100%;
+        margin-left: 8px;
+        overflow: hidden;
+        padding: 1px;
+        text-overflow: ellipsis;
+      }
+      .card-title {
+        color: lightgray;
+        font-size: $font-size-sub-title;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 2px 0;
+        max-width: 100%;
+        white-space: nowrap;
+      }
+
+      .card-text {
+        color: lightgray;
+        font-size: $font-size-text;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 4px 0;
+        max-width: 100%;
+        white-space: nowrap;
+      }
+      .card-description {
+        -webkit-box-orient: vertical;
+        color: lightgray;
+        display: -webkit-box;
+        font-size: $font-size-description;
+        -webkit-line-clamp: 2;
+        margin: 0.1rem 0;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        //white-space: nowrap;
+      }
+    }
+  }
+  .base-card-description {
+    border: 1px solid green;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
